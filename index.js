@@ -1,4 +1,11 @@
 const hapi = require('hapi');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/powerfullapi', { useUnifiedTopology: true });
+
+mongoose.connection.once('open', () => {
+    console.log('connected to database!')
+});
 
 const server = hapi.server({
     port: 4000,
