@@ -1,5 +1,6 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
+const Painting = require('./models/Painting');
 
 mongoose.connect('mongodb://localhost:27017/powerfullapi', { useUnifiedTopology: true });
 
