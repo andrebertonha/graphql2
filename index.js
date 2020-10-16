@@ -2,7 +2,7 @@ const hapi = require('hapi');
 const mongoose = require('mongoose');
 const Painting = require('./models/Painting');
 
-mongoose.connect('mongodb://localhost:27017/powerfullapi', { useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/powerfullapi', { useNewUrlParser: true , useUnifiedTopology: true });
 
 mongoose.connection.once('open', () => {
     console.log('connected to database!')
