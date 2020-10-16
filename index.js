@@ -1,6 +1,8 @@
 const hapi = require('hapi');
 const mongoose = require('mongoose');
 const Painting = require('./models/Painting');
+const { graphqlHapi, graphiqlHapi } = require('apollo-server-hapi');
+const schema = require('./graphql/schema');
 
 mongoose.connect('mongodb://localhost:27017/powerfullapi', { useNewUrlParser: true , useUnifiedTopology: true });
 
@@ -14,7 +16,7 @@ const server = hapi.server({
 });
 
 const init = async () => {
-    
+
     server.route([
         {
             method: 'GET',
@@ -45,7 +47,8 @@ const init = async () => {
         },
     ]);    
 
-    await server.start();
+    await server.start();    
+    
     console.log(`Server running at ${server.info.uri}`);
 };
 
