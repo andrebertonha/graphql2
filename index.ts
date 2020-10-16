@@ -10,6 +10,11 @@ const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 
+const swaggerOptions: HapiSwagger.RegisterOptions = {
+    info: {
+        title: 'Test API Documentation'
+    }
+};
 
 const server = hapi.server({
 	port: 4000,
@@ -24,17 +29,28 @@ mongoose.connection.once('open', () => {
 
 const init = async () => {
 
+	const swaggerOptions = {
+        info: {
+                title: 'Test API Documentation',
+                version: Pack.version,
+            },
+        };
+
+    await server.register([
+        Inert,
+        Vision,
+        {
+            plugin: HapiSwagger,
+            options: swaggerOptions
+        }
+    ]);
+
 	await server.register([
 		Inert,
 		Vision,
 		{
 			plugin: HapiSwagger,
-			options: {
-				info: {
-					title: 'Paintings API Documentation',
-					version: Pack.version
-				}
-			}
+			options: swaggerOptions
 		}
 	]);
 
