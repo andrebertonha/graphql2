@@ -10,7 +10,7 @@ const Vision = require('vision');
 const HapiSwagger = require('hapi-swagger');
 const Pack = require('./package');
 
-const swaggerOptions: HapiSwagger.RegisterOptions = {
+const swaggerOptions = HapiSwagger.RegisterOptions = {
     info: {
         title: 'Test API Documentation'
     }
