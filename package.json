@@ -12,5 +12,11 @@
   },
   "scripts": {
     "start": "nodemon index.ts"
-  }
+  },
+  "name": "graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/andrebertonha/graphql2.git",
+  "author": "andre <andrebertonhadev@gmail.com>",
+  "license": "MIT"
 }
